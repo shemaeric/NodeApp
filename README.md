@@ -1,5 +1,5 @@
 
-# Currency Convertor api
+# Node User Authentication API
 
  A simple app that performs basic user authentication methods
 
