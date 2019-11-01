@@ -1,0 +1,57 @@
+{
+  "name": "node_app",
+  "version": "1.0.0",
+  "description": "A simple currency conventor",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/preset-env": "^7.6.3",
+    "bcrypt": "^3.0.6",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "eslint": "^6.5.1",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "node": "^12.12.0",
+    "nodemon": "^1.19.4",
+    "pg": "^7.12.1",
+    "sequelize": "^5.21.2",
+    "sequelize-cli": "^5.5.1",
+    "sinon": "^7.5.0",
+    "uuid": "^3.3.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/node": "^7.6.3",
+    "@babel/register": "^7.6.2",
+    "mocha": "^6.2.1"
+  },
+  "scripts": {
+    "test": "mocha",
+    "heroku-postbuild": "npm install",
+    "start": "nodemon ./index.js --exec babel-node",
+    "start:heroku": "babel-node index.js",
+    "migration:generate": "node_modules/.bin/sequelize migrations:generate --name",
+    "migrate": "node_modules/.bin/sequelize db:migrate",
+    "seed": "NODE_ENV=test node_modules/.bin/sequelize db:seed:all",
+    "migrate:refresh": "npm run migrate:reset && npm run migrate",
+    "migrate:reset": "node_modules/.bin/sequelize db:migrate:undo:all",
+    "test:all": "NODE_ENV=test npm run migrate:refresh && npm run seed && npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aaronsekisambu/currency-convertor-api.git"
+  },
+  "author": "Aaron Sekisambu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aaronsekisambu/currency-convertor-api/issues"
+  },
+  "homepage": "https://github.com/aaronsekisambu/currency-convertor-api#readme"
+}
